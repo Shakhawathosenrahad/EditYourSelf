@@ -1,0 +1,133 @@
+
+
+/* FlexBox */
+/* body :where(.aboutUs .aboutUs_column) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+} */
+
+
+header {
+    background: #000;
+    height: 100%;
+}
+
+header .fa-solid {
+    width: min(40px, 100%);
+    aspect-ratio: 1 / 1;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 38px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+header .fa-solid:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+header .fa-solid.focus {
+    animation: history_back 400ms ease-in-out both;
+}
+
+@keyframes history_back {
+    0% {
+        transform: translateX(0);
+    }
+    50%, 70% {
+        transform: translateX(40px);
+    }
+    100% {
+        transform: translateX(0);
+        
+    }
+}
+
+header h1 {
+    text-align: left;
+    margin-top: 40px;
+}
+
+
+/* requerments */
+
+.req {
+    padding: 20px 15%;
+}
+
+.req ul {
+    margin: 50px auto;
+}
+
+.req ul h2 {
+    margin-left: -20px;
+    /* outline: 1px solid; */
+}
+
+
+/* join the team */
+
+form {
+    width: clamp(200px, 100%, 600px);
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    font-weight: 600;
+}
+
+form > div {
+    margin: 20px auto;
+    position: relative;
+    border-radius: 10px;
+}
+
+form > div:nth-last-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+form > div :is(input, textarea) {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #DFDFE8;
+    outline: none;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+form > div textarea {
+    height: 100px;
+}
+
+form > div input:is(:focus, :valid) + label {
+    top: -1px;
+}
+
+form > div label {
+    position: absolute;
+    inset: 50% auto auto 10px;
+    transform: translateY(-50%);
+    user-select: none;
+    cursor: text;
+    background: #fff;
+    transition: top 200ms;
+}
+
+form > div i {
+    cursor: pointer;
+}
+
+form .btn {
+    width: min(100%, 150px);
+}

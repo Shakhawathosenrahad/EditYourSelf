@@ -1,0 +1,39 @@
+
+/* flexBox */
+
+body :where(header, .email, .message) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+header {
+    background: #000;
+    height: 75vh;
+}
+
+header .email {
+    background: #1A1826;
+    border-radius: 20px;
+    padding: 15px 25px;
+    width: min(100%, 300px);
+}
+
+.email > i {
+    cursor: pointer;
+}
+
+.email > i:is(:focus) {
+    color: red;
+    animation: sent_message 350ms ease-in-out forwards;
+}
+
+@keyframes sent_message {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    35%, 70% {
+        transform: translateX(-20px);
+    }
+}

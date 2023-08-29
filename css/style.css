@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --link-color: #62626A;
+    --link-hover: #4253ED;
+    --nav-height: 9vh;
+}
+
+.btn {
+    border-radius: 50px;
+}
+
+/* FlexBox */
+body :where(nav, .links, .statis, .services_rows, footer) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* NavBar */
+
+nav {
+    height: var(--nav-height);
+    position: fixed;
+    flex-wrap: nowrap;
+    inset: 0 0 auto 0;
+    padding: 0 10%;
+    background: #06050B;
+    z-index: 5;
+    transition: 250ms;
+}
+
+nav.scrolling {
+    height: 6.4vh;
+    background: rgba(0, 0, 0, 0.159);
+    backdrop-filter: blur(45px);
+}
+
+nav .fa-solid {
+    display: none;
+    color: #fff;
+}
+
+nav .links {
+    justify-content: space-evenly;
+    width: clamp(200px, 100%, 800px);
+}
+
+.links a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 200ms;
+    position: relative;
+}
+
+.links a.active {
+    color: #fff;
+}
+
+nav.scrolling .links a.active {
+    color: #000;
+}
+
+.links a:hover {
+    border-bottom-color: var(--link-hover);
+}
+
+.links a b {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    font-size: .7rem;
+    color: #000;
+    text-align: center;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.links .btn {
+    width: min(120px, 100%);
+}
+
+nav.scrolling .links :is(a b, .btn) {
+    color: #fff;
+    border: none;
+    background: #4253ED;
+}
+
+
+/* header */
+
+header {
+    height: calc(90vh - var(--nav-height));
+    padding: 50px 10%;
+    margin-top: 50px;
+    color: #fff;
+    position: relative;
+}
+
+header > img {
+    position: absolute;
+    inset: 0 0 auto 0;
+    width: min(1300px, 100%);
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+header > :is(h1, p) {
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: banner_title 1200ms ease-in-out forwards;
+}
+
+header > p {
+    animation-delay: 500ms;
+}
+
+@keyframes banner_title {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+/* statistics */
+
+.statis {
+    width: min(900px, 65%);
+    position: absolute;
+    inset: 90% auto auto 50%;
+    transform: translateX(-50%);
+    padding: 30px;
+    border-radius: 10px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 30px;
+    color: #000;
+    background: #fff;
+}
+
+.statis li {
+    padding: 5px;
+    transform: translateY(200px);
+    list-style: none;
+    animation: statis 500ms var(--delay) ease-in-out forwards;
+}
+
+@keyframes statis {
+    0% {
+        transform: translateY(200px);
+    }
+    95% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.statis i {
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1rem;
+    background: #5364F5;
+    color: #fff;
+}
+
+.statis h6 {
+    margin: 15px 0 0 0;
+}
+
+.statis h6 b:first-child {
+    font-size: 1.5rem;
+}
+
+.statis h6 b:last-child {
+    font-size: 1rem;
+}
+
+
+/* our services */
+
+.services {
+    margin-top: 150px;
+    padding: 50px 10%;
+    overflow-x: hidden;
+}
+
+.services_rows {
+    margin: 35px auto;
+}
+
+.services_rows :is(.services_rows_img, .services_rows_text) {
+    max-width: 350px;
+    flex: 1 1 300px;
+    margin: 0 auto;
+    opacity: 0;
+    transition: 800ms;
+}
+
+.services_rows_img img {
+    width: clamp(200px, 100%, 300px);
+}
+
+.services_rows_text h4 {
+    font-weight: 600;
+}
+
+
+/* invention for you */
+
+.join_team {
+    padding: 50px 10%;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/join_team.png) center / cover no-repeat;
+    text-align: center;
+}
+
+.join_team .btn:is(:hover, :focus) {
+    color: #fff;
+    background: #4253ED;
+    border-color: transparent;
+}
+
+
+/* footer */
+
+footer {
+    padding: 15px 10%;
+    color: var(--link-color);
+    background: #000;
+    box-shadow: inset 0 -.6px 1px #28272C;
+}
+
+footer span {
+    user-select: none;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+footer span:hover {
+    color: #fff;
+}
+
+
+/* copyright */
+
+.copyright {
+    padding: 20px 10%;
+    text-align: center;
+    color: var(--link-color);
+    background: #000;
+}
